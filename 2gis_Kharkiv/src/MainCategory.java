@@ -19,10 +19,11 @@ public class MainCategory {
 
     public static void main(String[] args) throws Exception {
         MainCategory program = new MainCategory();
-        program.sendGet();
+        String response = program.sendGet();
+        SiteObject parcedSite = program.parseJson(response);
     }
 
-    private void sendGet() throws Exception {
+    private String  sendGet() throws Exception {
 
         // configure the SSLContext with a TrustManager
         SSLContext ctx = SSLContext.getInstance("TLS");
@@ -60,18 +61,21 @@ public class MainCategory {
         }
         in.close();
 
-        parseJson(response.toString());
 
         //print result
         System.out.println(response.toString());
+        return  response.toString();
 
     }
 
-    public void parseJson(String text) throws IOException {
+    public SiteObject parseJson(String text) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         SiteObject parsedSite = mapper.readValue(text, SiteObject.class);
+        return parsedSite;
 
     }
+
+
 
     private static class DefaultTrustManager implements X509TrustManager {
 
