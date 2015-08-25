@@ -1,10 +1,15 @@
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.net.ssl.*;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.Objects;
 
 /**
  * Created by Katerina on 8/25/15.
@@ -55,10 +60,19 @@ public class MainCategory {
         }
         in.close();
 
+        parseJson(response.toString());
+
         //print result
         System.out.println(response.toString());
 
     }
+
+    public void parseJson(String text) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        SiteObject parsedSite = mapper.readValue(text, SiteObject.class);
+
+    }
+
     private static class DefaultTrustManager implements X509TrustManager {
 
         @Override
