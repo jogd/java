@@ -7,9 +7,6 @@ public class Result {
 
     public Result(){};
 
-    long total;
-    List<Item> items;
-
     public long getTotal() {
         return total;
     }
@@ -25,4 +22,8 @@ public class Result {
     public void setItems(List<Item> items) {
         this.items = items;
     }
+
+    long total;
+    List<Item> items;
+
 }

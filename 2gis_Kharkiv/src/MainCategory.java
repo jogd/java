@@ -128,10 +128,10 @@ public class MainCategory {
             }
             in.close();
 
-            SiteObjectCategory siteObjectCategory = parseCategoryJson(response.toString());
+            SiteObjectCategory SiteObjectCategory = parseCategoryJson(response.toString());
 
             //print result
-//            System.out.println(response.toString());
+            System.out.println(response.toString());
         }
 
     }
