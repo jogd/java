@@ -79,11 +79,18 @@ public class MainCategory {
 
     }
 
+    public SiteObjectCategory parseCategoryJson(String text) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        SiteObjectCategory parsedSiteCategory = mapper.readValue(text, SiteObjectCategory.class);
+        return parsedSiteCategory;
+
+    }
+
     private void   getAllPoinds(List<Item> items) throws Exception {
 
         // configure the SSLContext with a TrustManager
         SSLContext ctx = SSLContext.getInstance("TLS");
-        ctx.init(new KeyManager[0], new TrustManager[]{new DefaultTrustManager()}, new SecureRandom());
+        ctx.init(new KeyManager[0], new TrustManager[] {new DefaultTrustManager()}, new SecureRandom());
         SSLContext.setDefault(ctx);
 
         for (int i = 0; i < items.size(); i++) {
@@ -121,18 +128,10 @@ public class MainCategory {
             }
             in.close();
 
+            SiteObjectCategory siteObjectCategory = parseCategoryJson(response.toString());
 
             //print result
-            System.out.println(response.toString());
-
-            public SiteObjectCategory parseJson(String text) throws IOException {
-                ObjectMapper mapper = new ObjectMapper();
-                SiteObjectCategory parsedSiteCategory = mapper.readValue(text, SiteObjectCategory.class);
-                return parsedSiteCategory;
-
-            }
-            }
-
+//            System.out.println(response.toString());
         }
 
     }
