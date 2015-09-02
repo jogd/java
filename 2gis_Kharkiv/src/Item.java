@@ -15,6 +15,7 @@ public class Item {
     String branch_count;
     List<Rubric> rubrics;
 
+
     public String getId() {
         return id;
     }
@@ -70,4 +71,5 @@ public class Item {
     public void setRubrics(List<Rubric> rubrics) {
         this.rubrics = rubrics;
     }
-}
+
+

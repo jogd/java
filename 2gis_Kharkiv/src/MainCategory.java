@@ -86,6 +86,7 @@ public class MainCategory {
 
     }
 
+
     private void   getAllPoinds(List<Item> items) throws Exception {
 
         // configure the SSLContext with a TrustManager
@@ -97,8 +98,7 @@ public class MainCategory {
             Item item = items.get(i);
 
 
-            String url = "https://catalog.api.2gis.ru/2.0/catalog/rubric/list?parent_id=" + item.getId() + "&stat%5Bpr%5D=3&region_id=110&sort=popularity&fields=items.rubrics&key=rudcgu3317";
-
+            String url = "https://catalog.api.2gis.ru/2.0/catalog/branch/list?page=" + !!! + "&page_size=50&rubric_id=" + item.getId() + "&hash=hsydthivymii90qu&stat%5Bpr%5D=3&region_id=110&fields=items.adm_div%2Citems.contact_groups%2Citems.flags%2Citems.address%2Citems.rubrics%2Citems.name_ex%2Citems.point%2Citems.external_content%2Citems.org%2Cwidgets%2Cfilters%2Citems.reviews%2Ccontext_rubrics%2Crequest_type&key=rudcgu3317";
             URL obj = new URL(url);
             HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
             con.setHostnameVerifier(new HostnameVerifier() {
@@ -132,6 +132,9 @@ public class MainCategory {
 
             //print result
             System.out.println(response.toString());
+
+
+
         }
 
     }
