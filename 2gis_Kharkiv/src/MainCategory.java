@@ -1,4 +1,3 @@
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.net.ssl.*;
@@ -10,7 +9,6 @@ import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by Katerina on 8/25/15.
@@ -79,9 +77,9 @@ public class MainCategory {
 
     }
 
-    public SiteObjectCategory parseCategoryJson(String text) throws IOException {
+    public CategorySiteObject parseCategoryJson(String text) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        SiteObjectCategory parsedSiteCategory = mapper.readValue(text, SiteObjectCategory.class);
+        CategorySiteObject parsedSiteCategory = mapper.readValue(text, CategorySiteObject.class);
         return parsedSiteCategory;
 
     }
@@ -128,7 +126,7 @@ public class MainCategory {
             }
             in.close();
 
-            SiteObjectCategory SiteObjectCategory = parseCategoryJson(response.toString());
+            CategorySiteObject SiteObjectCategory = parseCategoryJson(response.toString());
 
             //print result
             System.out.println(response.toString());
