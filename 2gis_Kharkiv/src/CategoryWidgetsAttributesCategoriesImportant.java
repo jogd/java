@@ -1,10 +1,10 @@
 /**
- * Created by EkaterinaK on 04.09.2015.
+ * Created by Katerina on 9/4/15.
  */
-public class CategoryFood {
-    public CategoryFood(){}
+public class CategoryWidgetsAttributesCategoriesImportant {
+    public CategoryWidgetsAttributesCategoriesImportant(){}
     String label;
-    String Items;
+    String items;
 
     public String getLabel() {
         return label;
@@ -15,10 +15,10 @@ public class CategoryFood {
     }
 
     public String getItems() {
-        return Items;
+        return items;
     }
 
     public void setItems(String items) {
-        Items = items;
+        this.items = items;
     }
 }

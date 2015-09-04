@@ -4,7 +4,7 @@ import java.util.List;
  * Created by EkaterinaK on 26.08.2015.
  */
 public class CategorySiteObject {
-    public CategorySiteObject(){};
+    public CategorySiteObject(){}
 
 
     Object meta;
@@ -13,7 +13,7 @@ public class CategorySiteObject {
     List<CategoryRubrics> rubrics;
     CategorySpatial spatial;
     List<CategoryDistricts> districts;
-    String widgets;
+    CategoryWidgets widgets;
     CategoryFood food;
     String details;
     String request_type;
@@ -67,11 +67,11 @@ public class CategorySiteObject {
         this.districts = districts;
     }
 
-    public String getWidgets() {
+    public CategoryWidgets getWidgets() {
         return widgets;
     }
 
-    public void setWidgets(String widgets) {
+    public void setWidgets(CategoryWidgets widgets) {
         this.widgets = widgets;
     }
 

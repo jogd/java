@@ -1,12 +1,19 @@
 /**
- * Created by EkaterinaK on 04.09.2015.
+ * Created by Katerina on 9/4/15.
  */
-public class CategoryRubrics {
-    public CategoryRubrics(){};
-
+public class CategorySpatialCities {
+    public CategorySpatialCities(){}
     String name;
     String id;
     String count;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getId() {
         return id;
@@ -22,14 +29,5 @@ public class CategoryRubrics {
 
     public void setCount(String count) {
         this.count = count;
-    }
-
-    public String getName() {
-
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
