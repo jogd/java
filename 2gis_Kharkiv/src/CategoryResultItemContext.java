@@ -5,13 +5,13 @@ import java.util.List;
  */
 public class CategoryResultItemContext {
     public CategoryResultItemContext(){};
-    List<CategoryResultItemContextFactors> factors;
+    List<CategoryResultItemContextFactors> stop_factors;
 
-    public List<CategoryResultItemContextFactors> getFactors() {
-        return factors;
+    public List<CategoryResultItemContextFactors> getStop_factors() {
+        return stop_factors;
     }
 
-    public void setFactors(List<CategoryResultItemContextFactors> factors) {
-        this.factors = factors;
+    public void setStop_factors(List<CategoryResultItemContextFactors> stop_factors) {
+        this.stop_factors = stop_factors;
     }
 }

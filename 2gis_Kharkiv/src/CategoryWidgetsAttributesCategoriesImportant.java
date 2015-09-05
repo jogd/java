@@ -1,10 +1,13 @@
+import java.util.List;
+
 /**
  * Created by Katerina on 9/4/15.
  */
 public class CategoryWidgetsAttributesCategoriesImportant {
     public CategoryWidgetsAttributesCategoriesImportant(){}
     String label;
-    String items;
+//    List<CategoryWidgetsAttributesCategoriesImportantItem> items;
+    List<Object> items;
 
     public String getLabel() {
         return label;
@@ -14,11 +17,11 @@ public class CategoryWidgetsAttributesCategoriesImportant {
         this.label = label;
     }
 
-    public String getItems() {
+    public List<Object> getItems() {
         return items;
     }
 
-    public void setItems(String items) {
+    public void setItems(List<Object> items) {
         this.items = items;
     }
 }

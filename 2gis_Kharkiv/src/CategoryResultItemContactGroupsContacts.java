@@ -5,7 +5,7 @@ public class CategoryResultItemContactGroupsContacts {
     public CategoryResultItemContactGroupsContacts(){};
 
     String type;
-    String valye;
+    String value;
     String text;
     String comment;
     String reg_bc_url;
@@ -18,12 +18,12 @@ public class CategoryResultItemContactGroupsContacts {
         this.type = type;
     }
 
-    public String getValye() {
-        return valye;
+    public String getValue() {
+        return value;
     }
 
-    public void setValye(String valye) {
-        this.valye = valye;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public String getText() {

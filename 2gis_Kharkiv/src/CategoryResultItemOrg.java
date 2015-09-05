@@ -6,7 +6,7 @@ public class CategoryResultItemOrg {
 
     String id;
     String name;
-    String dranch_count;
+    String branch_count;
 
     public String getId() {
         return id;
@@ -24,11 +24,11 @@ public class CategoryResultItemOrg {
         this.name = name;
     }
 
-    public String getDranch_count() {
-        return dranch_count;
+    public String getBranch_count() {
+        return branch_count;
     }
 
-    public void setDranch_count(String dranch_count) {
-        this.dranch_count = dranch_count;
+    public void setBranch_count(String branch_count) {
+        this.branch_count = branch_count;
     }
 }

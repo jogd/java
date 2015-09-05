@@ -8,7 +8,7 @@ public class CategoryFiltersAttributes {
 
     String tag;
     String type;
-    List<CategoryFiltersAttributesRange> range;
+    CategoryFiltersAttributesRange range;
 
     public String getTag() {
         return tag;
@@ -26,11 +26,11 @@ public class CategoryFiltersAttributes {
         this.type = type;
     }
 
-    public List<CategoryFiltersAttributesRange> getRange() {
+    public CategoryFiltersAttributesRange getRange() {
         return range;
     }
 
-    public void setRange(List<CategoryFiltersAttributesRange> range) {
+    public void setRange(CategoryFiltersAttributesRange range) {
         this.range = range;
     }
 }

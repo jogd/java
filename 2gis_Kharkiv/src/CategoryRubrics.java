@@ -2,7 +2,7 @@
  * Created by EkaterinaK on 04.09.2015.
  */
 public class CategoryRubrics {
-    public CategoryRubrics(){};
+    public CategoryRubrics(){}
 
     String name;
     String id;

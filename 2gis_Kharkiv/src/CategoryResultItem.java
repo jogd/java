@@ -7,20 +7,20 @@ public class CategoryResultItem {
     String id;
     String type;
     String name;
-    List<CategoryResultItemNameEx> name_ex;
-    List<CategoryResultItemPoint> point;
+    CategoryResultItemNameEx name_ex;
+    CategoryResultItemPoint point;
     List<CategoryResultItemAdmDiv> adm_div;
-    List<CategoryResultItemAddress> address;
+    CategoryResultItemAddress address;
     String address_name;
+    String address_comment;
     CategoryResultItemOrg org;
-    CategoryResultItemContactGroups contact_groups;
+    List<CategoryResultItemContactGroups> contact_groups;
     List<CategoryResultItemRubrics> rubrics;
     CategoryResultItemReviews reviews;
     CategoryResultItemAds ads;
     CategoryResultItemFlags flags;
     List<CategoryResultItemExternalContent> external_content;
     CategoryResultItemContext context;
-    CategoryResultItemAddressComponents address_comment;
 
     public String getId() {
         return id;
@@ -46,19 +46,19 @@ public class CategoryResultItem {
         this.name = name;
     }
 
-    public List<CategoryResultItemNameEx> getName_ex() {
+    public CategoryResultItemNameEx getName_ex() {
         return name_ex;
     }
 
-    public void setName_ex(List<CategoryResultItemNameEx> name_ex) {
+    public void setName_ex(CategoryResultItemNameEx name_ex) {
         this.name_ex = name_ex;
     }
 
-    public List<CategoryResultItemPoint> getPoint() {
+    public CategoryResultItemPoint getPoint() {
         return point;
     }
 
-    public void setPoint(List<CategoryResultItemPoint> point) {
+    public void setPoint(CategoryResultItemPoint point) {
         this.point = point;
     }
 
@@ -70,11 +70,11 @@ public class CategoryResultItem {
         this.adm_div = adm_div;
     }
 
-    public List<CategoryResultItemAddress> getAddress() {
+    public CategoryResultItemAddress getAddress() {
         return address;
     }
 
-    public void setAddress(List<CategoryResultItemAddress> address) {
+    public void setAddress(CategoryResultItemAddress address) {
         this.address = address;
     }
 
@@ -94,11 +94,11 @@ public class CategoryResultItem {
         this.org = org;
     }
 
-    public CategoryResultItemContactGroups getContact_groups() {
+    public List<CategoryResultItemContactGroups> getContact_groups() {
         return contact_groups;
     }
 
-    public void setContact_groups(CategoryResultItemContactGroups contact_groups) {
+    public void setContact_groups(List<CategoryResultItemContactGroups> contact_groups) {
         this.contact_groups = contact_groups;
     }
 
@@ -150,11 +150,11 @@ public class CategoryResultItem {
         this.context = context;
     }
 
-    public CategoryResultItemAddressComponents getAddress_comment() {
+    public String getAddress_comment() {
         return address_comment;
     }
 
-    public void setAddress_comment(CategoryResultItemAddressComponents address_comment) {
+    public void setAddress_comment(String address_comment) {
         this.address_comment = address_comment;
     }
 }
