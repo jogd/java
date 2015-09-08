@@ -47,6 +47,7 @@ public class PoiParser {
 
     public List<CategoryResultItem> getRubricItems(Rubric rubric, Integer pageNum, Integer pageSize, Integer totalItems) throws Exception {
         List<CategoryResultItem> rubricItems = new ArrayList<CategoryResultItem>();
+        Thread.sleep(1000);
         String url = "https://catalog.api.2gis.ru/2.0/catalog/branch/list?page="+pageNum+"&page_size="+PAGE_SIZE+"&rubric_id=" + rubric.getId() + "&hash=hsydthivymii90qu&stat%5Bpr%5D=3&region_id=110&fields=items.adm_div%2Citems.contact_groups%2Citems.flags%2Citems.address%2Citems.rubrics%2Citems.name_ex%2Citems.point%2Citems.external_content%2Citems.org%2Cwidgets%2Cfilters%2Citems.reviews%2Ccontext_rubrics%2Crequest_type&key=rudcgu3317";
         String responce = getResponceOnSsl(url);
         System.out.println(responce);
