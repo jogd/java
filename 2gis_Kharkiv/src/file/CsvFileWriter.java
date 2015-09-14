@@ -36,6 +36,8 @@ public class CsvFileWriter {
 			for (CategoryResultItem item : items) {
 				fileWriter.append(String.valueOf(item.getId()));
 				fileWriter.append(COMMA_DELIMITER);
+
+
 				
 				for (CategoryResultItemNameEx name_ex : item.getNameEx()){
 					fileWriter.append(name_ex.primary);
