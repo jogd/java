@@ -36,12 +36,39 @@ public class CsvFileWriter {
 			for (CategoryResultItem item : items) {
 				fileWriter.append(String.valueOf(item.getId()));
 				fileWriter.append(COMMA_DELIMITER);
-				fileWriter.append(item.getName());
-				fileWriter.append(COMMA_DELIMITER);
-				fileWriter.append(item.getType());
-				fileWriter.append(NEW_LINE_SEPARATOR);
-			}
+				
+				for (CategoryResultItemNameEx name_ex : item.getNameEx()){
+					fileWriter.append(name_ex.primary);
+					fileWriter.append(COMMA_DELIMITER);
+					fileWriter.append(name_ex.addition);
+					fileWriter.append(COMMA_DELIMITER);
+					fileWriter.append(name_ex.legal_name);
+					fileWriter.append(COMMA_DELIMITER);
+					fileWriter.append(name_ex.extension);
+					fileWriter.append(COMMA_DELIMITER);
+					fileWriter.append(name_ex.description);
+					fileWriter.append(COMMA_DELIMITER);
+				}
+				for (CategoryResultItemPoint point : item.getPoint()){
+					fileWriter.append(point.lon);
+					fileWriter.append(COMMA_DELIMITER);
+					fileWriter.append(point.lat);
+					fileWriter.append(COMMA_DELIMITER);	
+				}
+				
+				for (CategoryResultItemAddress address : item.getAddress()){
+					for (CategoryResultItemAddressComponents components: item.getAddress.Сomponents()){
+					fileWriter.append(components.street);
+					fileWriter.append(COMMA_DELIMITER);
+					fileWriter.append(components.number);
+					fileWriter.append(COMMA_DELIMITER);	
+					}	
+				}
+					
+				}
+				
 
+  
 			System.out.println("CSV file was created successfully !!!");
 
 		} catch (Exception e) {
