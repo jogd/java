@@ -45,8 +45,8 @@ public class PoiParser {
 				List<CategoryResultItem> rubricRequestResultItems = parser.getRubricItems(rubric, 1, PAGE_SIZE, null);
 				resultItems.addAll(rubricRequestResultItems);
 				rubricCount++;
+				writer.writeCsvFile(rubric.getId(), resultItems);
 			}
-			writer.writeCsvFile(resultItems);
 		}
 		System.out.println("Total rubric amount = " + rubricCount);
 		System.out.println("Total result items  = " + resultItems.size());

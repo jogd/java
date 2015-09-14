@@ -1,6 +1,6 @@
 package file;
 
-import site.structure.CategoryResultItem;
+import site.structure.*;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -19,12 +19,23 @@ public class CsvFileWriter {
 	//CSV file header
 	private static final String FILE_HEADER = "id,name,type";
 
-	public static void writeCsvFile(List<CategoryResultItem> items) {
+	public String getPrintRubric() {
+		return printRubric;
+	}
+
+	public void setPrintRubric(String printRubric) {
+		this.printRubric = printRubric;
+	}
+
+	private String  printRubric;
+
+	public void writeCsvFile(String rubricId, List<CategoryResultItem> items) {
 
 		FileWriter fileWriter = null;
+		setPrintRubric(rubricId);
 
 		try {
-			fileWriter = new FileWriter(SAVE_FILE);
+			fileWriter = new FileWriter(SAVE_FILE, true);
 
 			//Write the CSV file header
 			fileWriter.append(FILE_HEADER.toString());
@@ -34,43 +45,29 @@ public class CsvFileWriter {
 
 			//Write a new student object list to the CSV file
 			for (CategoryResultItem item : items) {
-				fileWriter.append(String.valueOf(item.getId()));
-				fileWriter.append(COMMA_DELIMITER);
+				printId(fileWriter, item.getId());
 
+				CategoryResultItemNameEx name_ex = item.getName_ex();
+				if (name_ex != null){
+					print(fileWriter, name_ex.getPrimary());
+					print(fileWriter, name_ex.getAddition());
+					print(fileWriter, name_ex.getLegal_name());
+					print(fileWriter, name_ex.getExtension());
+					print(fileWriter, name_ex.getDescription());
+				}
+				CategoryResultItemPoint point = item.getPoint();
+				if (point !=null){
+					print(fileWriter, point.getLon());
+					print(fileWriter, point.getLat());
+				}
 
-				
-				for (CategoryResultItemNameEx name_ex : item.getNameEx()){
-					fileWriter.append(name_ex.primary);
-					fileWriter.append(COMMA_DELIMITER);
-					fileWriter.append(name_ex.addition);
-					fileWriter.append(COMMA_DELIMITER);
-					fileWriter.append(name_ex.legal_name);
-					fileWriter.append(COMMA_DELIMITER);
-					fileWriter.append(name_ex.extension);
-					fileWriter.append(COMMA_DELIMITER);
-					fileWriter.append(name_ex.description);
-					fileWriter.append(COMMA_DELIMITER);
+				for (CategoryResultItemAddressComponents components: item.getAddress().getComponents()){
+					print(fileWriter, components.getStreet());
+					print(fileWriter, components.getNumber());
 				}
-				for (CategoryResultItemPoint point : item.getPoint()){
-					fileWriter.append(point.lon);
-					fileWriter.append(COMMA_DELIMITER);
-					fileWriter.append(point.lat);
-					fileWriter.append(COMMA_DELIMITER);	
-				}
-				
-				for (CategoryResultItemAddress address : item.getAddress()){
-					for (CategoryResultItemAddressComponents components: item.getAddress.Сomponents()){
-					fileWriter.append(components.street);
-					fileWriter.append(COMMA_DELIMITER);
-					fileWriter.append(components.number);
-					fileWriter.append(COMMA_DELIMITER);	
-					}	
-				}
-					
-				}
-				
+				fileWriter.append(NEW_LINE_SEPARATOR);
+			}
 
-  
 			System.out.println("CSV file was created successfully !!!");
 
 		} catch (Exception e) {
@@ -86,6 +83,29 @@ public class CsvFileWriter {
 				e.printStackTrace();
 			}
 
+		}
+	}
+
+	public void print (FileWriter fileWriter, String value){
+		try {
+			String printValue = null;
+			if (value == null || value.equals("")){
+				printValue = "\"\"";
+			}else {
+				printValue = "\""+value+"\"";
+			}
+			fileWriter.append(printValue);
+			fileWriter.append(COMMA_DELIMITER);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void printId (FileWriter fileWriter, String id){
+		if (id!=null && id.length() > 16){
+			print(fileWriter, getPrintRubric()+": "+id.substring(0, 17));
+		}else {
+			print(fileWriter, getPrintRubric()+": "+id);
 		}
 	}
 
