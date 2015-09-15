@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CsvFileWriter {
 
-	public static final String SAVE_FILE = "export_poi";
+	public static final String SAVE_FILE = "export_poi.csv";
 	//Delimiter used in CSV file
 	private static final String COMMA_DELIMITER = ";";
 	private static final String NEW_LINE_SEPARATOR = "\n";
@@ -34,7 +34,7 @@ public class CsvFileWriter {
 
 		FileWriter fileWriter = null;
 		try {
-			fileWriter = new FileWriter(SAVE_FILE+rubricId+".csv", true);
+			fileWriter = new FileWriter(SAVE_FILE, true);
 
 			//Write the CSV file header
 			//fileWriter.append(FILE_HEADER.toString());
@@ -56,8 +56,8 @@ public class CsvFileWriter {
 				}
 				CategoryResultItemPoint point = item.getPoint();
 				if (point !=null){
-					print(fileWriter, point.getLon());
-					print(fileWriter, point.getLat());
+					print(fileWriter, Double.toString(point.getLon()*100000));
+					print(fileWriter, Double.toString(point.getLat() * 100000));
 				}
 
 				for (CategoryResultItemAddressComponents components: item.getAddress().getComponents()){
