@@ -6,9 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by yevgeniyk on 09.09.15.
- */
+
 public class CsvFileWriter {
 
 	public static final String SAVE_FILE = "export_poi.csv";
@@ -38,10 +36,10 @@ public class CsvFileWriter {
 			fileWriter = new FileWriter(SAVE_FILE, true);
 
 			//Write the CSV file header
-			fileWriter.append(FILE_HEADER.toString());
+			//fileWriter.append(FILE_HEADER.toString());
 
 			//Add a new line separator after the header
-			fileWriter.append(NEW_LINE_SEPARATOR);
+			//fileWriter.append(NEW_LINE_SEPARATOR);
 
 			//Write a new student object list to the CSV file
 			for (CategoryResultItem item : items) {
@@ -90,9 +88,9 @@ public class CsvFileWriter {
 		try {
 			String printValue = null;
 			if (value == null || value.equals("")){
-				printValue = "\"\"";
+				printValue = " \"\"";
 			}else {
-				printValue = "\""+value+"\"";
+				printValue = " \""+value+"\"";
 			}
 			fileWriter.append(printValue);
 			fileWriter.append(COMMA_DELIMITER);
@@ -103,9 +101,9 @@ public class CsvFileWriter {
 
 	public void printId (FileWriter fileWriter, String id){
 		if (id!=null && id.length() > 16){
-			print(fileWriter, getPrintRubric()+": "+id.substring(0, 17));
+			print(fileWriter, getPrintRubric()+"\", "+ "\""+id.substring(0, 17));
 		}else {
-			print(fileWriter, getPrintRubric()+": "+id);
+			print(fileWriter, getPrintRubric()+"\", "+ "\""+id);
 		}
 	}
 

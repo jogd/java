@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import file.CsvFileWriter;
+import file.CsvFileWriterRubrics;
 import site.structure.CategoryResultItem;
 import site.structure.CategorySiteObject;
 import site.structure.Item;
@@ -37,6 +38,10 @@ public class PoiParser {
 		System.out.println(rubricList);
 		// get rubrics
 		int rubricCount = 0;
+		List<Item> Items = new ArrayList<Item>();
+		CsvFileWriterRubrics writerRubrics = new CsvFileWriterRubrics();
+
+
 		List<CategoryResultItem> resultItems = new ArrayList<CategoryResultItem>();
 		CsvFileWriter writer = new CsvFileWriter();
 		for (Item item : rubricList.getResult().getItems()) {
