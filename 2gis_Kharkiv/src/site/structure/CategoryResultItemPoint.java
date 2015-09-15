@@ -5,22 +5,22 @@ package site.structure;
  */
 public class CategoryResultItemPoint {
     public CategoryResultItemPoint(){};
-    String lon;
-    String lat;
+    Double lon;
+    Double lat;
 
-    public String getLon() {
+    public Double getLon() {
         return lon;
     }
 
-    public void setLon(String lon) {
+    public void setLon(Double lon) {
         this.lon = lon;
     }
 
-    public String getLat() {
+    public Double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(Double lat) {
         this.lat = lat;
     }
 }

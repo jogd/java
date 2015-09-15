@@ -9,9 +9,9 @@ import java.util.List;
 
 public class CsvFileWriter {
 
-	public static final String SAVE_FILE = "export_poi.csv";
+	public static final String SAVE_FILE = "export_poi";
 	//Delimiter used in CSV file
-	private static final String COMMA_DELIMITER = ",";
+	private static final String COMMA_DELIMITER = ";";
 	private static final String NEW_LINE_SEPARATOR = "\n";
 
 	//CSV file header
@@ -34,7 +34,7 @@ public class CsvFileWriter {
 
 		FileWriter fileWriter = null;
 		try {
-			fileWriter = new FileWriter(SAVE_FILE, true);
+			fileWriter = new FileWriter(SAVE_FILE+rubricId+".csv", true);
 
 			//Write the CSV file header
 			//fileWriter.append(FILE_HEADER.toString());
@@ -89,9 +89,9 @@ public class CsvFileWriter {
 		try {
 			String printValue = null;
 			if (value == null || value.equals("")){
-				printValue = " \"\"";
+				printValue = "\"\"";
 			}else {
-				printValue = " \""+value+"\"";
+				printValue = "\""+value+"\"";
 			}
 			fileWriter.append(printValue);
 			fileWriter.append(COMMA_DELIMITER);
@@ -102,9 +102,9 @@ public class CsvFileWriter {
 
 	public void printId (FileWriter fileWriter, String id){
 		if (id!=null && id.length() > 16){
-			print(fileWriter, getPrintRubric()+"\", "+ "\""+id.substring(0, 17));
+			print(fileWriter, getPrintRubric()+"\";"+ "\""+id.substring(0, 17));
 		}else {
-			print(fileWriter, getPrintRubric()+"\", "+ "\""+id);
+			print(fileWriter, getPrintRubric()+"\";"+ "\""+id);
 		}
 	}
 

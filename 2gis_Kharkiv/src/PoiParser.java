@@ -38,8 +38,8 @@ public class PoiParser {
 		System.out.println(rubricList);
 		// get rubrics
 		int rubricCount = 0;
-		List<Item> Items = new ArrayList<Item>();
-		CsvFileWriterRubrics writerRubrics = new CsvFileWriterRubrics();
+		//List<Item> Items = new ArrayList<Item>();
+		//CsvFileWriterRubrics writerRubrics = new CsvFileWriterRubrics();
 
 
 		List<CategoryResultItem> resultItems = new ArrayList<CategoryResultItem>();
