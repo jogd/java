@@ -29,9 +29,10 @@ public class CsvFileWriter {
 
 	public void writeCsvFile(String rubricId, List<CategoryResultItem> items) {
 
-		FileWriter fileWriter = null;
+		FileWriter fileWriterR = null;
 		setPrintRubric(rubricId);
 
+		FileWriter fileWriter = null;
 		try {
 			fileWriter = new FileWriter(SAVE_FILE, true);
 

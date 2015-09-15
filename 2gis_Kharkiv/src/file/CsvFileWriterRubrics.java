@@ -29,13 +29,13 @@ public class CsvFileWriterRubrics {
 
         private String  printRubric;
 
-        public void writeCsvFile(String rubricId, List<Item> items) {
+        public void writeCsvFileRubrics(String rubricId, List<Item> items) {
 
-            FileWriter fileWriter = null;
+            FileWriter fileWriterRubrics = null;
             setPrintRubric(rubricId);
 
             try {
-                fileWriter = new FileWriter(SAVE_FILE, true);
+                fileWriterRubrics = new FileWriter(SAVE_FILE, true);
 
                 //Write the CSV file header
                 //fileWriter.append(FILE_HEADER.toString());
@@ -46,14 +46,14 @@ public class CsvFileWriterRubrics {
                 //Write a new student object list to the CSV file
                 for (Item item : items) {
                     //printId(fileWriter, item.getId());
-                    print(fileWriter, item.getId());
-                    print(fileWriter, item.getName());
+                    print(fileWriterRubrics, item.getId());
+                    print(fileWriterRubrics, item.getName());
 
                     for (Rubric rubrics: item.getRubrics()){
-                        print(fileWriter, rubrics.getId());
-                        print(fileWriter, rubrics.getName());
+                        print(fileWriterRubrics, rubrics.getId());
+                        print(fileWriterRubrics, rubrics.getName());
                     }
-                    fileWriter.append(NEW_LINE_SEPARATOR);
+                    fileWriterRubrics.append(NEW_LINE_SEPARATOR);
                 }
 
                 System.out.println("CSV file was created successfully !!!");
@@ -64,8 +64,8 @@ public class CsvFileWriterRubrics {
             } finally {
 
                 try {
-                    fileWriter.flush();
-                    fileWriter.close();
+                    fileWriterRubrics.flush();
+                    fileWriterRubrics.close();
                 } catch (IOException e) {
                     System.out.println("Error while flushing/closing fileWriter !!!");
                     e.printStackTrace();
