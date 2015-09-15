@@ -56,8 +56,8 @@ public class CsvFileWriter {
 				}
 				CategoryResultItemPoint point = item.getPoint();
 				if (point !=null){
-					print(fileWriter, Double.toString(point.getLon()*100000));
-					print(fileWriter, Double.toString(point.getLat() * 100000));
+					print(fileWriter, Integer.toString((int) (point.getLon()*100000)));//Double.toString(point.getLon()*100000));
+					print(fileWriter, Integer.toString((int) (point.getLat()*100000)));
 				}
 
 				for (CategoryResultItemAddressComponents components: item.getAddress().getComponents()){
