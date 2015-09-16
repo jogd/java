@@ -62,8 +62,14 @@ public class PoiParser {
 
 	private SiteObject getRubricList() throws Exception {
 		String
+
+				//Kharkov region_id=110
+				//Dnepropetrovsk region_id=105
+				//Donetsk region_id=79
+				//Odessa region_id=14
+
 				url =
-				"https://catalog.api.2gis.ru/2.0/catalog/rubric/list?parent_id=0&stat%5Bpr%5D=7&region_id=110&sort=popularity&fields=items.rubrics&key=rudcgu3317";
+				"https://catalog.api.2gis.ru/2.0/catalog/rubric/list?parent_id=0&stat%5Bpr%5D=7&region_id=79&sort=popularity&fields=items.rubrics&key=rudcgu3317";
 		String response = getResponceOnSsl(url);
 		SiteObject rubricListResponce = parseRubricList(response);
 		return rubricListResponce;
@@ -73,6 +79,12 @@ public class PoiParser {
 		List<CategoryResultItem> rubricItems = new ArrayList<CategoryResultItem>();
 		Thread.sleep(200);
 		String
+
+				//Kharkov region_id=110
+				//Dnepropetrovsk region_id=105
+				//Donetsk region_id=79
+				//Odessa region_id=14
+
 				url =
 				"https://catalog.api.2gis.ru/2.0/catalog/branch/list?page="
 				+ pageNum
@@ -80,7 +92,7 @@ public class PoiParser {
 				+ PAGE_SIZE
 				+ "&rubric_id="
 				+ rubric.getId()
-				+ "&hash=hsydthivymii90qu&stat%5Bpr%5D=3&region_id=110&fields=items.adm_div%2Citems.contact_groups%2Citems.flags%2Citems.address%2Citems.rubrics%2Citems.name_ex%2Citems.point%2Citems.external_content%2Citems.org%2Cwidgets%2Cfilters%2Citems.reviews%2Ccontext_rubrics%2Crequest_type&key=rudcgu3317";
+				+ "&hash=hsydthivymii90qu&stat%5Bpr%5D=3&region_id=79&fields=items.adm_div%2Citems.contact_groups%2Citems.flags%2Citems.address%2Citems.rubrics%2Citems.name_ex%2Citems.point%2Citems.external_content%2Citems.org%2Cwidgets%2Cfilters%2Citems.reviews%2Ccontext_rubrics%2Crequest_type&key=rudcgu3317";
 		String responce = getResponceOnSsl(url);
 		System.out.println(responce);
 		ObjectMapper mapper = new ObjectMapper();

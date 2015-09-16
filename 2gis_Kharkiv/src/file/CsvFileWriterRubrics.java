@@ -11,7 +11,12 @@ import java.util.List;
  */
 public class CsvFileWriterRubrics {
 
-        public static final String SAVE_FILE = "export_poi_category.csv";
+    //Kharkov region_id=110
+    //Dnepropetrovsk region_id=105
+    //Donetsk region_id=79
+    //Odessa region_id=14
+
+        public static final String SAVE_FILE = "export_poi_category_Donetsk.csv";
         //Delimiter used in CSV file
         private static final String COMMA_DELIMITER = ";";
         private static final String NEW_LINE_SEPARATOR = "\n";
