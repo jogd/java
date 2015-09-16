@@ -21,7 +21,7 @@ public class CategoryResultItem {
     CategoryResultItemReviews reviews;
     CategoryResultItemAds ads;
     CategoryResultItemFlags flags;
-    List<CategoryResultItemExternalContent> external_content;
+    List<Object> external_content;
     CategoryResultItemContext context;
 
     public String getId() {
@@ -136,11 +136,11 @@ public class CategoryResultItem {
         this.flags = flags;
     }
 
-    public List<CategoryResultItemExternalContent> getExternal_content() {
+    public List<Object> getExternal_content() {
         return external_content;
     }
 
-    public void setExternal_content(List<CategoryResultItemExternalContent> external_content) {
+    public void setExternal_content(List<Object> external_content) {
         this.external_content = external_content;
     }
 

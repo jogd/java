@@ -39,9 +39,11 @@ public class PoiParser {
 		// get rubrics
 		int rubricCount = 0;
 		//List<Item> Items = new ArrayList<Item>();
-		//CsvFileWriterRubrics writerRubrics = new CsvFileWriterRubrics();
+		CsvFileWriterRubrics fileWriterRubrics = new CsvFileWriterRubrics();
 
 
+
+		fileWriterRubrics.writeCsvFileRubrics(rubricList.getResult().getItems());
 		List<CategoryResultItem> resultItems = new ArrayList<CategoryResultItem>();
 		CsvFileWriter writer = new CsvFileWriter();
 		for (Item item : rubricList.getResult().getItems()) {
@@ -69,7 +71,7 @@ public class PoiParser {
 
 	public List<CategoryResultItem> getRubricItems(Rubric rubric, Integer pageNum, Integer pageSize, Integer totalItems) throws Exception {
 		List<CategoryResultItem> rubricItems = new ArrayList<CategoryResultItem>();
-		Thread.sleep(1000);
+		Thread.sleep(200);
 		String
 				url =
 				"https://catalog.api.2gis.ru/2.0/catalog/branch/list?page="

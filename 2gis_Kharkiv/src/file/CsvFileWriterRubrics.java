@@ -13,26 +13,15 @@ public class CsvFileWriterRubrics {
 
         public static final String SAVE_FILE = "export_poi_category.csv";
         //Delimiter used in CSV file
-        private static final String COMMA_DELIMITER = ",";
+        private static final String COMMA_DELIMITER = ";";
         private static final String NEW_LINE_SEPARATOR = "\n";
 
         //CSV file header
         //private static final String FILE_HEADER = "id,name,type";
 
-        public String getPrintRubric() {
-            return printRubric;
-        }
-
-        public void setPrintRubric(String printRubric) {
-            this.printRubric = printRubric;
-        }
-
-        private String  printRubric;
-
-        public void writeCsvFileRubrics(String rubricId, List<Item> items) {
+        public void writeCsvFileRubrics(List<Item> items) {
 
             FileWriter fileWriterRubrics = null;
-            setPrintRubric(rubricId);
 
             try {
                 fileWriterRubrics = new FileWriter(SAVE_FILE, true);
@@ -46,14 +35,14 @@ public class CsvFileWriterRubrics {
                 //Write a new student object list to the CSV file
                 for (Item item : items) {
                     //printId(fileWriter, item.getId());
-                    print(fileWriterRubrics, item.getId());
-                    print(fileWriterRubrics, item.getName());
 
                     for (Rubric rubrics: item.getRubrics()){
+                        print(fileWriterRubrics, item.getId());
+                        print(fileWriterRubrics, item.getName());
                         print(fileWriterRubrics, rubrics.getId());
                         print(fileWriterRubrics, rubrics.getName());
+                        fileWriterRubrics.append(NEW_LINE_SEPARATOR);
                     }
-                    fileWriterRubrics.append(NEW_LINE_SEPARATOR);
                 }
 
                 System.out.println("CSV file was created successfully !!!");
@@ -78,9 +67,9 @@ public class CsvFileWriterRubrics {
             try {
                 String printValue = null;
                 if (value == null || value.equals("")){
-                    printValue = " \"\"";
+                    printValue = "\"\"";
                 }else {
-                    printValue = " \""+value+"\"";
+                    printValue = "\""+value+"\"";
                 }
                 fileWriter.append(printValue);
                 fileWriter.append(COMMA_DELIMITER);
@@ -91,9 +80,9 @@ public class CsvFileWriterRubrics {
 
         public void printId (FileWriter fileWriter, String id){
             if (id!=null && id.length() > 16){
-                print(fileWriter, getPrintRubric()+"\", "+ "\""+id.substring(0, 17));
+                print(fileWriter, id.substring(0, 17));
             }else {
-                print(fileWriter, getPrintRubric()+"\", "+ "\""+id);
+                print(fileWriter, id);
             }
         }
 
