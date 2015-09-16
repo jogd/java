@@ -14,7 +14,7 @@ public class CsvFileWriter {
 	//Donetsk region_id=79
 	//Odessa region_id=14
 
-	public static final String SAVE_FILE = "export_poi_Donetsk.csv";
+	public static final String SAVE_FILE = "export_poi_Kharkov.csv";
 	//Delimiter used in CSV file
 	private static final String COMMA_DELIMITER = ";";
 	private static final String NEW_LINE_SEPARATOR = "\n";
@@ -49,6 +49,7 @@ public class CsvFileWriter {
 
 			//Write a new student object list to the CSV file
 			for (CategoryResultItem item : items) {
+
 				printId(fileWriter, item.getId());
 
 				CategoryResultItemNameEx name_ex = item.getName_ex();
@@ -70,6 +71,7 @@ public class CsvFileWriter {
 					print(fileWriter, components.getNumber());
 				}
 				fileWriter.append(NEW_LINE_SEPARATOR);
+
 			}
 
 			System.out.println("CSV file was created successfully !!!");

@@ -16,7 +16,7 @@ public class CsvFileWriterRubrics {
     //Donetsk region_id=79
     //Odessa region_id=14
 
-        public static final String SAVE_FILE = "export_poi_category_Donetsk.csv";
+        public static final String SAVE_FILE = "export_poi_category_Kharkov.csv";
         //Delimiter used in CSV file
         private static final String COMMA_DELIMITER = ";";
         private static final String NEW_LINE_SEPARATOR = "\n";
